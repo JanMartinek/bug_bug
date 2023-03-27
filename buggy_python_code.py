@@ -37,13 +37,14 @@ def fetch_website(urllib_version, url):
 
 def load_yaml(filename):
     stream = open(filename)
-    deserialized_data = yaml.load(stream, Loader=yaml.Loader) #deserializing data
+    deserialized_data = yaml.safe_load(stream, Loader=yaml.Loader) #deserializing data
     return deserialized_data
     
 def authenticate(password):
-    # Assert that the password is correct
-    assert password == "Iloveyou", "Invalid password!"
-    print("Successfully authenticated!")
+    if password == "Iloveyou":
+        print("Successfully authenticated!")
+    else
+        raise Exception("Invalid password!")
 
 if __name__ == '__main__':
     print("Vulnerabilities:")
